@@ -7,6 +7,13 @@ Azure IoT Hub に登録されたデバイスに対し、以下を行う Web ア�
 
 Azure IoT Hub へのデバイス登録・削除や、アプリへのサインイン等の実装は含まないが、このサンプルをベースに追加が可能。
 
+## Contents  
+- [サンプルを動かす](#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%92%E5%8B%95%E3%81%8B%E3%81%99)
+- [サンプルの構造](#structure)
+- [このサンプルをどうやって作ったか](#how-to-construct-this-sample)
+- [各自の Web App 開発時の利用方法](#how-to-reuse)
+
+-------------------------
 ## サンプルを動かす 
 予め、Azure IoT Hub（Free で可）を作成し、いくつかデバイスを登録しておく。共有アクセスポリシーで、<b>レジストリ書き込み</b>、<b>サービス接続</b>の権限を持ったアクセスポリシーを作っておく。  
 [SampleWebApp/WebAppDeviceRegistry.csproj](./SampleWebApp/WebAppDeviceRegistry.csproj) を Visual Studio 2019 で開く。  
