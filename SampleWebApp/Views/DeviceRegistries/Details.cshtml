@@ -1,0 +1,108 @@
+﻿@model WebAppDeviceTest.Models.DeviceRegistry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DeviceRegistry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesiredProperties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesiredProperties)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportedProperties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportedProperties)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETags)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETags)
+        </dd>
+
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<h4>Method Invocation</h4>
+@using (Html.BeginForm("Invoke","DeviceRegistries",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DeviceId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MethodName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MethodName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MethodName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MethodPayload, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MethodPayload, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MethodPayload, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Invoke" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<h4>Send C2D Message</h4>
+@using (Html.BeginForm("Send","DeviceRegistries",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.DeviceId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.C2DMessage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.C2DMessage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.C2DMessage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Send" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
