@@ -96,3 +96,8 @@ Web.config に、Azure IoT Hub の接続文字列を追加。
 アプリへのサインインが必要な場合は、プロジェクト作成時に、認証機能を追加し、
 ![authentication setting](./images/mvcsignin.png)
 [セキュアな Web アプリ開発方法](https://docs.microsoft.com/ja-jp/aspnet/core/security/authorization/secure-data?view=aspnetcore-3.1)を参考に、必要な設定を加えればよい。
+
+
+本サンプルは、Azure Web Apps へのデプロイが可能である（もちろん！）。
+その際、Web.config に設定した接続文字列は、[アプリケーションの設定の構成](https://docs.microsoft.com/ja-jp/azure/app-service/configure-common)を参考に、適切な場所に設定すること。
+
